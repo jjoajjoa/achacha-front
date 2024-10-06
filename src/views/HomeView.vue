@@ -1,6 +1,13 @@
 <script setup>
+import router from '@/router/index.js';
 import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+
+//테스트페이지::나중에지울거예용
+function goToTest() {
+    router.replace({ path: '/test', query: {} });
+}
+
 </script>
 
 <template>
@@ -37,6 +44,8 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
                 <h1>화면설계 테스트중입니당</h1>
+                <!--테스트페이지::나중에지울거예용-->
+                <button @click="goToTest()" class="btn btn-warning btn-sm">테스트화면으로</button>
             </div>
             <!--end::메인화면-->
         </div>
