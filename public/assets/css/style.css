@@ -5,6 +5,38 @@
     border: 2px solid olive;
 }
 
+/* 우리 색깔 */
+/* 4A24A1   029EBE   F9E2AF   F6F6F6   D3E1FC */
+
+/* 공통 */
+.achacha-back-blue {
+    background-color: #029EBE;
+    color: white;
+}
+
+.achacha-back-yellow {
+    background-color: #F9E2AF;
+}
+
+.achacha-back-light-blue {
+    background-color: #D3E1FC;
+}
+
+.achacha-back-light-gray {
+    background-color: #F6F6F6;
+}
+
+.btn-achacha {
+    background-color: #4A24A1;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-achacha:hover {
+    background-color: #ccbbf3;
+    font-weight: bold;
+}
+
 /*===== begin::헤더, 메인, 푸터 기본화면 =====*/
 
 #mainPage {
