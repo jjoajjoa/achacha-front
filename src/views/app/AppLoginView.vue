@@ -36,7 +36,55 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
             <!--begin::메인화면-->
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
-                <h1>앱 로그인 테스트중입니당</h1>
+
+                <!--begin::로고 & 회사이름-->
+                <div class="d-flex flex-row vh-40 tomato">
+                    <div>로고 사진 넣기</div>
+                    <div>
+                        <p>아차차</p>
+                    </div>
+
+                </div>
+                <!--end::로고 & 회사이름-->
+
+                <!--begin::물류회사 사원번호&pw input-->
+                <div class="d-flex flex-column vh-40 tomato">
+                    <!--begin::회사 select-->
+                    <div>
+                        <select class="form-select w-300px ms-10" aria-label="Default select example">
+                            <option selected>소속선택</option>
+                            <option value="1">A물류</option>
+                            <option value="2">B물류</option>
+                            <option value="3">C물류</option>
+                        </select>
+                    </div>
+                    <!--end::회사 select-->
+
+                
+                    <!--begin::사원번호 input-->
+                    <div><input type="text" class="mt-5 ms-10 w-300px "  placeholder="사원번호"></div>
+
+                    <!--end::사원번호 input-->
+
+                    <!--begin::비밀번호 input-->
+                    <div><input type="text" class="mt-5 ms-10 w-300px"  placeholder="비밀번호"></div>
+                    <!--end::비밀번호 input-->
+                </div>
+
+                <!--end::물류회사 사원번호&pw input-->
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <!--end::메인화면-->
         </div>
