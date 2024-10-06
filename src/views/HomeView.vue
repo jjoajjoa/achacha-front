@@ -45,7 +45,7 @@ function goToTest() {
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
                 <h1>화면설계 테스트중입니당</h1>
                 <!--테스트페이지::나중에지울거예용-->
-                <button @click="goToTest()" class="btn btn-warning btn-sm">테스트화면으로</button>
+                <button @click="goToTest()" class="btn btn-warning btn-sm">테스트 화면으로</button>
             </div>
             <!--end::메인화면-->
         </div>
