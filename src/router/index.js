@@ -20,17 +20,42 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: () => import('../views/LoginView.vue')
+        component: () => import('../views/web/LoginView.vue')
     },
     {
         path: '/dashboard',
         name: 'dashboard',
-        component: () => import('../views/DashboardView.vue')
+        component: () => import('../views/web/DashboardView.vue')
     },
     {
         path: '/monitoring',
         name: 'monitoring',
-        component: () => import('../views/MonitoringView.vue')
+        component: () => import('../views/web/MonitoringView.vue')
+    },
+    {
+        path: '/apphome',
+        name: 'apphome',
+        component: () => import('../views/app/AppHomeView.vue')
+    },
+    {
+        path: '/applogin',
+        name: 'applogin',
+        component: () => import('../views/app/AppLoginView.vue')
+    },
+    {
+        path: '/appoperations',
+        name: 'appoperations',
+        component: () => import('../views/app/AppOperationsView.vue')
+    },
+    {
+        path: '/appoperationdetails',
+        name: 'appoperationdetails',
+        component: () => import('../views/app/AppOperationDetailsView.vue')
+    },
+    {
+        path: '/appmypage',
+        name: 'appmypage',
+        component: () => import('../views/app/AppMypageView.vue')
     },
 ]
 

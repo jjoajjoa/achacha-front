@@ -4,12 +4,16 @@ import router from '@/router/index.js';
 
 const titleText = ref('홈 화면');
 
-function goToHome() {
+function goToProfile() {
     router.replace({ path: '/' });
 }
 
-function goToAbout() {
-    router.replace({ path: '/about' });
+function goToDashboard() {
+    router.replace({ path: '/dashboard' });
+}
+
+function goToMonitoring() {
+    router.replace({ path: '/monitoring' });
 }
 
 // 하단 내비게이션 메뉴 버튼 선택 인덱스
@@ -20,11 +24,14 @@ function selectNavItem(index) {
     console.log(`selectNavItem called -> ${index}`);
     navItemSelected.value = index;
     if (index == 0) {
-        titleText.value = '홈 화면';
-        goToHome();
+        titleText.value = '프로필 화면';
+        goToProfile();
     } else if (index == 1) {
-        titleText.value = '정보 화면';
-        goToAbout();
+        titleText.value = '대쉬보드 화면';
+        goToDashboard();
+    } else if (index == 2) {
+        titleText.value = '전체현황 화면';
+        goToMonitoring();
     }
 
     // 드로어 닫기
@@ -88,7 +95,7 @@ onMounted(() => {
                                         <span class="path4"></span>
                                     </i>
                                 </span>
-                                <span class="menu-title fs-2">대시보드</span>
+                                <span class="menu-title fs-2">프로필</span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:메뉴링크-->
@@ -96,20 +103,47 @@ onMounted(() => {
                             <div class="menu-sub menu-sub-accordion">
                                 <!--begin:서브메뉴 아이템 1-->
                                 <div class="menu-item">
-                                    <div class="menu-link" @click="selectNavItem(0)">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot fs-1"></span>
-                                        </span>
-                                        <span class="menu-title fs-2">홈</span>
-                                    </div>
-                                </div>
-                                <!--begin:서브메뉴 아이템 2-->
-                                <div class="menu-item">
                                     <div class="menu-link" @click="selectNavItem(1)">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot fs-1"></span>
                                         </span>
-                                        <span class="menu-title fs-2">프로필</span>
+                                        <span class="menu-title fs-2">대시보드</span>
+                                    </div>
+                                </div>
+                                <!--begin:서브메뉴 아이템 2-->
+                                <div class="menu-item">
+                                    <div class="menu-link" @click="selectNavItem(2)">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot fs-1"></span>
+                                        </span>
+                                        <span class="menu-title fs-2">전체현황</span>
+                                    </div>
+                                </div>
+                                <!--begin:서브메뉴 아이템 3-->
+                                <div class="menu-item">
+                                    <div class="menu-link" @click="selectNavItem(3)">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot fs-1"></span>
+                                        </span>
+                                        <span class="menu-title fs-2">실시간운행리스트</span>
+                                    </div>
+                                </div>
+                                <!--begin:서브메뉴 아이템 4-->
+                                <div class="menu-item">
+                                    <div class="menu-link" @click="selectNavItem(4)">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot fs-1"></span>
+                                        </span>
+                                        <span class="menu-title fs-2">전체운행리스트</span>
+                                    </div>
+                                </div>
+                                <!--begin:서브메뉴 아이템 5-->
+                                <div class="menu-item">
+                                    <div class="menu-link" @click="selectNavItem(5)">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot fs-1"></span>
+                                        </span>
+                                        <span class="menu-title fs-2">직원목록</span>
                                     </div>
                                 </div>
                             </div>

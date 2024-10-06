@@ -5,11 +5,15 @@ import router from '@/router/index.js';
 const titleText = ref('홈 화면');
 
 function goToHome() {
-    router.replace({ path: '/' });
+    router.replace({ path: '/apphome' });
 }
 
-function goToAbout() {
-    router.replace({ path: '/about' });
+function goToOperations() {
+    router.replace({ path: '/appoperations' });
+}
+
+function goToMypage() {
+    router.replace({ path: '/appmypage' });
 }
 
 // 하단 내비게이션 메뉴 버튼 선택 인덱스
@@ -20,11 +24,14 @@ function selectNavItem(index) {
     console.log(`selectNavItem called -> ${index}`);
     navItemSelected.value = index;
     if (index == 0) {
-        titleText.value = '홈 화면';
+        titleText.value = '메인화면';
         goToHome();
     } else if (index == 1) {
-        titleText.value = '정보 화면';
-        goToAbout();
+        titleText.value = '전체기록';
+        goToOperations();
+    } else if (index == 2) {
+        titleText.value = '마이페이지';
+        goToMypage();
     }
 }
 
@@ -40,10 +47,8 @@ onMounted(() => {
             <li class="nav__item" :class="(navItemSelected == 0) ? 'active' : ''" @click="selectNavItem(0)">
                 <div class="nav__item-link text-center">
                     <div class="nav__item-icon">
-                        <i class="ki-duotone ki-home fs-3x">
-                        </i>
                     </div>
-                    <span class="nav__item-text">홈</span>
+                    <span class="nav__item-text">메인화면</span>
                 </div>
             </li>
             <li class="nav__item" :class="(navItemSelected == 1) ? 'active' : ''" @click="selectNavItem(1)">
@@ -55,7 +60,7 @@ onMounted(() => {
                             <span class="path3"></span>
                         </i>
                     </div>
-                    <span class="nav__item-text">전체통계</span>
+                    <span class="nav__item-text">전체기록</span>
                 </div>
             </li>
             <li class="nav__item" :class="(navItemSelected == 2) ? 'active' : ''" @click="selectNavItem(2)">
