@@ -90,9 +90,9 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
-                                <div class="d-flex flex-colum">
+                                <div class="d-flex flex-colum tomato">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3 olive">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -100,56 +100,9 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5 olive">
 
-                                        <div class="flex-row fw-bold tomato">
-                                            2024-10-02
-                                        </div>
-
-                                        <div class="flex-row fw-bold fs-3x tomato">
-                                            청주 물류센터
-                                        </div>
-
-                                        <div class="flex-row fw-bold fs-3x tomato">
-                                            부산 물류센터
-                                        </div>
-
-                                        <div class="d-flex flex-row tomato">
-
-                                            <div class="col-6 olive">
-                                                <div class="fw-bold">운행시간</div>
-                                                <div>15시간 32분</div>
-                                            </div>
-
-                                            <div class="col-6 olive">
-                                                <div class="fw-bold">운행거리</div>
-                                                <div>1004km</div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="card-body mb-5 border-30 achacha-back-yellow">
-
-                                <div class="d-flex flex-colum">
-
-                                    <div class="col-2 ">
-                                        <div class="fw-bold fs-2x">12</div>
-                                        <div class="fw-bold ms-1">30</div>
-                                        <div class="fw-bold ms-2">↓</div>
-                                        <div class="fw-bold fs-2x">12</div>
-                                        <div class="fw-bold ms-1">30</div>
-                                    </div>
-
-                                    <div class="col-10 ">
-
-                                        <div class="flex-row fw-bold ">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
@@ -182,11 +135,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -194,28 +148,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -229,11 +183,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -241,28 +196,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -276,11 +231,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -288,28 +244,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -323,11 +279,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -335,28 +292,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -370,11 +327,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -382,28 +340,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -417,11 +375,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -429,28 +388,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -464,11 +423,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -476,28 +436,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -511,11 +471,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -523,28 +484,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -558,11 +519,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
+
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
                                 <div class="d-flex flex-colum">
 
-                                    <div class="col-2 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -570,28 +532,28 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 olive">
+                                    <div class="col-10 ms-5">
 
-                                        <div class="flex-row fw-bold tomato">
+                                        <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             청주 물류센터
                                         </div>
 
-                                        <div class="flex-row fw-bold fs-3x tomato">
+                                        <div class="flex-row fw-bold fs-3x ">
                                             부산 물류센터
                                         </div>
 
-                                        <div class="d-flex flex-row tomato">
+                                        <div class="d-flex flex-row ">
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행시간</div>
                                                 <div>15시간 32분</div>
                                             </div>
 
-                                            <div class="col-6 olive">
+                                            <div class="col-6 ">
                                                 <div class="fw-bold">운행거리</div>
                                                 <div>1004km</div>
                                             </div>
@@ -605,99 +567,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             </div>
 
-                            <div class="card-body mb-5 border-30 achacha-back-yellow">
 
-                                <div class="d-flex flex-colum">
-
-                                    <div class="col-2 olive">
-                                        <div class="fw-bold fs-2x">12</div>
-                                        <div class="fw-bold ms-1">30</div>
-                                        <div class="fw-bold ms-2">↓</div>
-                                        <div class="fw-bold fs-2x">12</div>
-                                        <div class="fw-bold ms-1">30</div>
-                                    </div>
-
-                                    <div class="col-10 olive">
-
-                                        <div class="flex-row fw-bold tomato">
-                                            2024-10-02
-                                        </div>
-
-                                        <div class="flex-row fw-bold fs-3x tomato">
-                                            청주 물류센터
-                                        </div>
-
-                                        <div class="flex-row fw-bold fs-3x tomato">
-                                            부산 물류센터
-                                        </div>
-
-                                        <div class="d-flex flex-row tomato">
-
-                                            <div class="col-6 olive">
-                                                <div class="fw-bold">운행시간</div>
-                                                <div>15시간 32분</div>
-                                            </div>
-
-                                            <div class="col-6 olive">
-                                                <div class="fw-bold">운행거리</div>
-                                                <div>1004km</div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="card-body mb-5 border-30 achacha-back-yellow">
-
-                                <div class="d-flex flex-colum">
-
-                                    <div class="col-2 olive">
-                                        <div class="fw-bold fs-2x">12</div>
-                                        <div class="fw-bold ms-1">30</div>
-                                        <div class="fw-bold ms-2">↓</div>
-                                        <div class="fw-bold fs-2x">12</div>
-                                        <div class="fw-bold ms-1">30</div>
-                                    </div>
-
-                                    <div class="col-10 olive">
-
-                                        <div class="flex-row fw-bold tomato">
-                                            2024-10-02
-                                        </div>
-
-                                        <div class="flex-row fw-bold fs-3x tomato">
-                                            청주 물류센터
-                                        </div>
-
-                                        <div class="flex-row fw-bold fs-3x tomato">
-                                            부산 물류센터
-                                        </div>
-
-                                        <div class="d-flex flex-row tomato">
-
-                                            <div class="col-6 olive">
-                                                <div class="fw-bold">운행시간</div>
-                                                <div>15시간 32분</div>
-                                            </div>
-
-                                            <div class="col-6 olive">
-                                                <div class="fw-bold">운행거리</div>
-                                                <div>1004km</div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
 
 
 
