@@ -46,7 +46,7 @@ function goToTest() {
                 <h1>화면설계 테스트중입니당</h1>
                 <!--테스트페이지::나중에지울거예용-->
                 <button @click="goToTest()" class="btn btn-achacha btn-sm">테스트 화면으로</button>
-            </div>
+            </div> 
             <!--end::메인화면-->
         </div>
 
