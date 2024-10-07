@@ -161,7 +161,7 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error loading Kakao Maps script or initializing map:', error);
   }
-  
+
 });
 </script>
 
@@ -188,7 +188,7 @@ onMounted(async () => {
             <div style="margin-left: 22em;">
 
               <!-- Begin::대시보드 스위치 버튼 영역 -->
-              <div class="bg-white p-4 rounded">
+              <div class="achacha-back-light-gray p-4 rounded" style="border: 2px solid black;">
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                   <label class="form-check-label fw-bold text-dark" for="flexSwitchCheckDefault">대시보드 보기</label>
@@ -199,21 +199,24 @@ onMounted(async () => {
               <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
               <div>
 
-                <div class="card mt-5" style="width: 14rem; height: 14rem;">
-                  <div class="card-body">
-                    전체차량대수
+                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
+                  <div class="card-body text-center">
+                    <h2>전체차량대수</h2>
+                    <h2>26대</h2>
                   </div>
                 </div>
 
-                <div class="card mt-5" style="width: 14rem; height: 14rem;">
-                  <div class="card-body">
-                    운전부적합직원
+                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
+                  <div class="card-body text-center">
+                    <h4>운전부적합직원</h4>
+                    <h2>9명</h2>
                   </div>
                 </div>
 
-                <div class="card mt-5" style="width: 14rem; height: 14rem;">
-                  <div class="card-body">
-                    운행중차량대수
+                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
+                  <div class="card-body text-center">
+                    <h4>운행중차량대수</h4>
+                    <h2>12대</h2>
                   </div>
                 </div>
 
@@ -221,20 +224,37 @@ onMounted(async () => {
               <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
             </div>
             <!-- end::대시보드 영역 -->
-            
-            
-            
+
+
+
           </div>
           <!-- End::지도 위에 표시하는 영역 -->
-          
-          <div class="d-flex justify-content-end" style="position: absolute; top: 50em; left: 75%; z-index: 999;">
-            <div class="card mt-5" style="width: 30rem; height: 14rem;">
-                <div class="card-body">
-                  
-                  
 
+          <div style="position: absolute; top: 50em; left: 80%; z-index: 999;">
+            <div class="card mt-5" style="width: 25rem; height: 14rem; border: 2px solid black;">
+              <div class="card-body">
+
+                <div class="d-flex flex-column">
+
+                  <div class="d-flex flex-row mb-4">
+                    <img src="@/assets/truck.png" style="width: 3em;">
+                    <h1 class="ms-5">정상 운전 직원</h1>
+                  </div>
+                  
+                  <div class="d-flex flex-row mb-4">
+                    <img src="@/assets/bluetruck.png" style="width: 3em;">
+                    <h1 class="ms-5">운전 부적합 직원</h1>
+                  </div>
+                  
+                  <div class="d-flex flex-row">
+                    <img src="@/assets/redtruck.png" style="width: 3em;">
+                    <h1 class="ms-5">졸음운전 주의 직원</h1>
+                  </div>
+                  
                 </div>
+
               </div>
+            </div>
           </div>
 
 
