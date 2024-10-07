@@ -5,6 +5,9 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 // 트럭의 경로: 좌표 점들의 배열
 const linePath = ref([]);
 
+// 트럭의 위치를 담는 배열
+const markersPosition = ref([]);
+
 // 지도 및 선 초기화
 var polyline = null;
 var map = null;
@@ -29,6 +32,8 @@ const loadScript = () => {
   });
 };
 
+// 마커들을 담아둘 배열
+var markers = [];
 
 
 // 카카오 맵, 마커, 폴리라인을 초기화하는 함수
@@ -49,6 +54,9 @@ const initializeMap = () => {
 
 
   var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+
+
+
 
   // 마커 위치 생성
   var markerPosition = [
@@ -79,11 +87,10 @@ const initializeMap = () => {
 
   ]
 
-  // 마커들을 담아둘 배열
-  var markers = [];
+
 
   // 마커 생성
-  for (var i = 0; i < markerPosition.length; i++) {
+  for (let i = 0; i < markerPosition.length; i++) {
     var marker = new window.kakao.maps.Marker({
       position: markerPosition[i].latlng,
       title: markerPosition[i].title,
@@ -93,8 +100,8 @@ const initializeMap = () => {
   }
 
   // 마커를 지도에 표시
-  for (var j = 0; j < markers.length; j++) {
-    markers[j].setMap(map);
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
   }
 
   // 마커 위에 표시될 안내창
@@ -139,6 +146,24 @@ const updatePolyline = (lat, lng) => {
   polyline.setPath(linePath.value); // 지도에서 폴리라인 경로 업데이트
 };
 
+// 새로운 GPS 데이터를 사용하여 마커를 동적으로 업데이트하는 함수
+const updateMarker = (lat, lng) => {
+  if (!markers) {
+    console.warn('Marker not initialized yet.');
+    return;
+  }
+
+  // 업데이트된 GPS 정보를 바탕으로 마커 위치를 갱신
+  for (let i = 0; i < markersPosition.value.length; i++) {
+
+    markersPosition.value[i] = {
+      latlng: new window.kakao.maps.LatLng(lat, lng)
+    }
+
+    // 새로운 좌표로 마크를 업데이트
+  }
+}
+
 // GPS 데이터 업데이트를 시뮬레이션하는 함수 (테스트용)
 const simulateGpsData = () => {
   let initLat = 37.515732;
@@ -149,6 +174,7 @@ const simulateGpsData = () => {
     initLat += newLat;
     initLong += newLng;
     updatePolyline(initLat, initLong); // 새로운 좌표로 폴리라인 업데이트
+    updateMarker(initLat, initLong);
   }, 1000); // 1초마다 업데이트
 };
 
@@ -161,7 +187,7 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error loading Kakao Maps script or initializing map:', error);
   }
-  
+
 });
 </script>
 
@@ -221,20 +247,20 @@ onMounted(async () => {
               <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
             </div>
             <!-- end::대시보드 영역 -->
-            
-            
-            
+
+
+
           </div>
           <!-- End::지도 위에 표시하는 영역 -->
-          
+
           <div class="d-flex justify-content-end" style="position: absolute; top: 50em; left: 75%; z-index: 999;">
             <div class="card mt-5" style="width: 30rem; height: 14rem;">
-                <div class="card-body">
-                  
-                  
+              <div class="card-body">
 
-                </div>
+
+
               </div>
+            </div>
           </div>
 
 
