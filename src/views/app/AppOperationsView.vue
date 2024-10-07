@@ -1,6 +1,21 @@
 <script setup>
 import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import { Calendar } from 'v-calendar';
+import 'v-calendar/style.css';
+</script>
+
+<script>
+export default {
+  components: {
+    Calendar,
+  },
+  data() {
+    return {
+      date: new Date(),
+    };
+  },
+}
 </script>
 
 <template>
@@ -38,8 +53,13 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
 
 
-                <div class="d-flex flex-row vh-40 tomato">
+                <div class="d-flex justify-content-center vh-40 tomato">
+                    <!--캘린더-->
+                    <div class="mt-3">
+                        <Calendar style="width: 350px;"/>
+                    </div>
 
+                    <!--캘린더-->
 
                 </div>
 
