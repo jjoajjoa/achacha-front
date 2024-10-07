@@ -69,12 +69,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
 
                     <!--begin::사원번호 input-->
-                    <div><input type="text" class="mt-5 ms-10 w-300px vh-5" placeholder="사원번호"></div>
+                    <div><input type="text" class="mt-5 ms-10 w-300px vh-6 input" placeholder="사원번호"></div>
 
                     <!--end::사원번호 input-->
 
                     <!--begin::비밀번호 input-->
-                    <div><input type="text" class="mt-5 ms-10 w-300px vh-5" placeholder="비밀번호"></div>
+                    <div><input type="text" class="mt-5 ms-10 w-300px vh-6 input" placeholder="비밀번호"></div>
                     <!--end::비밀번호 input-->
 
                     <!--begin::자동로그인 체크-->
