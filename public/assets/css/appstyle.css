@@ -10,6 +10,10 @@ height: 15vh !important;
 height: 20vh !important;
 }
 
+.vh-25 {
+height: 25vh !important;
+}
+    
 .vh-30 {
     height: 30vh !important;
   }

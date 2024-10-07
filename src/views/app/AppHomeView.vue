@@ -136,9 +136,9 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                             </div>
 
 
-                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+                            <div class="card-body mb-5 ms-5 border-30 w-300px achacha-back-yellow">
 
-                                <div class="d-flex flex-colum">
+                                <div class="d-flex flex-colum ">
 
                                     <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
