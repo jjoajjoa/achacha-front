@@ -4,7 +4,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 </script>
 
 <template>
-    <div id="mainPage" class="d-flex flex-column">
+    <div id="mainPage" class="d-flex flex-column achacha-back-light-gray">
 
         <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2">
 
@@ -38,16 +38,23 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
 
                 <!--begin::로고 & 회사이름-->
-                <div class="d-flex flex-row vh-40 tomato">
-                    <div>로고 사진 넣기</div>
-                    <div>
+                <div class="d-flex flex-column  vh-40 tomato">
+
+                    <!--begin::로고사진-->
+                    <div class="card align-self-center mt-40 " style="width: 10rem;">
+                        <img src="@\assets\logo1.png" class="card-img-top" alt="...">
+
+                    </div>
+                    <!--end::로고사진-->
+
+                    <div class="align-self-center" style="font-size: 25px;">
                         <p>아차차</p>
                     </div>
 
                 </div>
                 <!--end::로고 & 회사이름-->
 
-                <!--begin::물류회사 사원번호&pw input-->
+                <!--begin::로고&회사이름 아래부분-->
                 <div class="d-flex flex-column vh-40 tomato">
                     <!--begin::회사 select-->
                     <div>
@@ -60,18 +67,33 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                     </div>
                     <!--end::회사 select-->
 
-                
+
                     <!--begin::사원번호 input-->
-                    <div><input type="text" class="mt-5 ms-10 w-300px "  placeholder="사원번호"></div>
+                    <div><input type="text" class="mt-5 ms-10 w-300px vh-5" placeholder="사원번호"></div>
 
                     <!--end::사원번호 input-->
 
                     <!--begin::비밀번호 input-->
-                    <div><input type="text" class="mt-5 ms-10 w-300px"  placeholder="비밀번호"></div>
+                    <div><input type="text" class="mt-5 ms-10 w-300px vh-5" placeholder="비밀번호"></div>
                     <!--end::비밀번호 input-->
-                </div>
 
-                <!--end::물류회사 사원번호&pw input-->
+                    <!--begin::자동로그인 체크-->
+                    <div class="form-check ms-10 mt-5">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            자동로그인
+                        </label>
+                    </div>
+                    <!--end::자동로그인 체크-->
+
+                    <!--begin::로그인 버튼-->
+                    <button type="button" class="btn btn-achacha w-100px align-self-center ">로그인</button>
+                    <!--end::로그인 버튼-->
+
+                </div>
+                <!--end::로고&회사이름 아래부분-->
+
+
 
 
 
