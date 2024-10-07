@@ -26,7 +26,7 @@ const loadScript = () => {
 };
 
 // 지도 및 선 초기화
-let polyline = null;
+var polyline = null;
 
 // 카카오맵 지도 로드
 const loadMap = () => {
@@ -39,7 +39,7 @@ const loadMap = () => {
   // 지도 만들기
   const map = new window.kakao.maps.Map(container, options);
 
-  // 지도에 표시할 선을 생성합니다
+  // 지도에 표시할 선을 생성
   polyline = new window.kakao.maps.Polyline({
     path: linePath.value, // 선을 구성하는 좌표배열
     strokeWeight: 5, // 선의 두께
@@ -48,7 +48,7 @@ const loadMap = () => {
     strokeStyle: 'solid', // 선의 스타일
   });
 
-  // 지도에 선을 표시합니다
+  // 지도에 선을 표시
   polyline.setMap(map);
 };
 
@@ -59,6 +59,11 @@ const updatePolyline = (lat, lng) => {
     return;
   }
 
+  const newLinePath = linePath.value.slice();
+  newLinePath.push({
+    lat: lat, lng: lng
+  })
+
   linePath.value.push(new window.kakao.maps.LatLng(lat, lng)); // 좌표정보 추가
   polyline.setPath(linePath.value); // polyLine 경로를 업데이트함
 };
@@ -68,25 +73,21 @@ const simulateGpsData = () => {
   setInterval(() => {
     const newLat = 36.5 + Math.random() * 0.01; // 랜덤 위도 시뮬레이션
     const newLng = 127.5 + Math.random() * 0.01; // 랜덤 경도 시뮬레이션
-    updatePolyline(newLat, newLng);
+    updatePolyline(newLat, newLng); // 폴리라인 업데이트
   }, 3000); // 3초마다 업데이트
 };
 
 // 페이지가 로드될 때 스크립트와 지도 초기화
 onMounted(async () => {
   try {
-    loadMap(); // 카카오맵 초기화
     await loadScript(); // 카카오맵 스크립트 불러오기
+    loadMap(); // 카카오맵 초기화
     simulateGpsData(); // GPS 더미데이터 집어넣기 (테스트)
   } catch (error) {
     console.error('Error loading Kakao Maps script:', error);
   }
 });
-
-
 </script>
-
-
 
 <template>
   <div id="mainPage" class="d-flex flex-column">
