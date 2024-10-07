@@ -34,7 +34,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
             <!--end::사이드바-->
 
             <!--begin::메인화면-->
-            <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+            <div class="app-main flex-column flex-row-fluid achacha-back-light-gray" id="kt_app_main">
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
 
 
@@ -44,18 +44,24 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                     <!--begin::프로필사진-->
                     <div class="col-6 tomato">
-                        이미지 추가할 곳
+
+                        <div class="card ms-10 mt-5" style="width: 10rem;">
+                            <img src="@\assets\사람사진.png" class="card-img-top" style="width: 10rem;" alt="...">
+
+                        </div>
+
+
                     </div>
                     <!--end::프로필사진-->
 
                     <!--begin::소속, 이름-->
                     <div class="col-6 tomato">
 
-                        <div class="h-60px mt-10 olive">
+                        <div class="h-60px fw-bold mt-10 ms-5 fs-4x olive">
                             <p>xx물류</p>
                         </div>
 
-                        <div class="h-60px mt-10 olive">
+                        <div class="h-60px fw-bold mt-10 ms-5 fs-4x olive">
                             <p>김배달</p>
                         </div>
 
@@ -67,12 +73,12 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                 <!--begin::전체기록 버튼-->
                 <div class="d-flex flex-row justify-content-end">
-                    <button type="button" class="btn btn-primary btn-sm me-5">전체보기</button>
+                    <button type="button" class="btn btn-achacha btn-sm me-5">전체기록</button>
                 </div>
                 <!--end::전체기록 버튼-->
 
                 <!--begin::아래 스크롤 운행기록 -->
-                <div class="tomato">
+                <div class="tomato" style="height: 360px; overflow-y: auto;">
 
                     <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
                         data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2"
@@ -80,36 +86,627 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                         <!--begin::운행기록 카드-->
 
-                        <div class="card" style="width: 28rem;">
+                        <div class="card achacha-back-light-gray" style="width: 28rem;">
 
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 ">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 ">
+
+                                        <div class="flex-row fw-bold ">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x ">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x ">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row ">
+
+                                            <div class="col-6 ">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 ">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 olive">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 olive">
+
+                                        <div class="flex-row fw-bold tomato">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x tomato">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row tomato">
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 olive">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
 
                             </div>
 
 
-                            <div class="card-body ">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
 
-                            </div>
 
-                            <div class="card-body ">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
 
-                            </div>
 
-                            <div class="card-body ">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
 
-                            </div>
+
+
                         </div>
 
                         <!--end::운행기록 카드-->
