@@ -1,6 +1,9 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+
+// 트럭의 경로: 좌표 점들의 배열
+const linePath = ref([]);
 
 // 카카오맵 스크립트 로드
 const loadScript = () => {
@@ -22,6 +25,9 @@ const loadScript = () => {
   });
 };
 
+// 지도 및 선 초기화
+var polyline = null;
+
 // 카카오맵 지도 로드
 const loadMap = () => {
   const container = document.getElementById('map'); // 지도 객체
@@ -31,36 +37,145 @@ const loadMap = () => {
   };
 
   // 지도 만들기
-  new window.kakao.maps.Map(container, options);
+  const map = new window.kakao.maps.Map(container, options);
+
+  // 지도에 표시할 선을 생성
+  polyline = new window.kakao.maps.Polyline({
+    path: linePath.value, // 선을 구성하는 좌표배열
+    strokeWeight: 5, // 선의 두께
+    strokeColor: '#FFAE00', // 선의 색깔
+    strokeOpacity: 0.7, // 선의 불투명도. 1에서 0 사이의 값이며 0에 가까울수록 투명
+    strokeStyle: 'solid', // 선의 스타일
+  });
+
+  // 지도에 선을 표시
+  polyline.setMap(map);
+};
+
+// gps정보가 업데이트될 때마다 linePath에 좌표정보를 추가
+const updatePolyline = (lat, lng) => {
+  if (!polyline) {
+    console.warn('Polyline not initialized yet.');
+    return;
+  }
+
+  const newLinePath = linePath.value.slice();
+  newLinePath.push({
+    lat: lat, lng: lng
+  })
+
+  linePath.value.push(new window.kakao.maps.LatLng(lat, lng)); // 좌표정보 추가
+  polyline.setPath(linePath.value); // polyLine 경로를 업데이트함
+};
+
+// 테스트용 gps 더미데이터 생성기
+const simulateGpsData = () => {
+  // 시작 좌표
+  let initLat = 37.515732;
+  let initLong = 127.033695;
+  setInterval(() => {
+    const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 시뮬레이션
+    const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 시뮬레이션
+    initLat += newLat;
+    initLong += newLng;
+    updatePolyline(initLat, initLong); // 폴리라인 업데이트
+  }, 10); // 3초마다 업데이트
 };
 
 // 페이지가 로드될 때 스크립트와 지도 초기화
 onMounted(async () => {
-  await loadScript(); // Load the Kakao Map script
-  loadMap(); // Initialize the map
+  try {
+    await loadScript(); // 카카오맵 스크립트 불러오기
+    loadMap(); // 카카오맵 초기화
+    simulateGpsData(); // GPS 더미데이터 집어넣기 (테스트)
+  } catch (error) {
+    console.error('Error loading Kakao Maps script:', error);
+  }
 });
 </script>
 
+
 <template>
+
   <div id="mainPage" class="d-flex flex-column">
     <div class="flex-column flex-row-fluid" id="kt_app_wrapper">
       <!-- Sidebar Component -->
-      <MainSidebar />
+      <div style="position: relative; z-index: 1000;">
+        <MainSidebar />
+      </div>
 
       <!-- Main Content -->
       <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 
         <!-- Begin::Kakao Map -->
         <div>
-          <KakaoMap />
-          <div id="map" class="mt-0"></div>
+          <div id="map" class="mt-0" style="position: relative; height: 100vh; width: 100%;"></div>
+
+          <!-- Begin::지도 위에 표시하는 영역 -->
+          <div style="position: absolute; top: 20px; z-index: 999;">
+
+            <!-- begin::대시보드 영역 -->
+            <div style="margin-left: 22em;">
+
+              <!-- Begin::대시보드 스위치 버튼 영역 -->
+              <div class="bg-white p-4 rounded">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <label class="form-check-label fw-bold text-dark" for="flexSwitchCheckDefault">대시보드 보기</label>
+                </div>
+              </div>
+              <!-- end::대시보드 스위치 버튼 영역 -->
+
+              <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
+              <div>
+
+                <div class="card mt-5" style="width: 14rem; height: 14rem;">
+                  <div class="card-body">
+                    전체차량대수
+                  </div>
+                </div>
+
+                <div class="card mt-5" style="width: 14rem; height: 14rem;">
+                  <div class="card-body">
+                    운전부적합직원
+                  </div>
+                </div>
+
+                <div class="card mt-5" style="width: 14rem; height: 14rem;">
+                  <div class="card-body">
+                    운행중차량대수
+                  </div>
+                </div>
+
+              </div>
+              <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
+            </div>
+            <!-- end::대시보드 영역 -->
+            
+            
+            
+          </div>
+          <!-- End::지도 위에 표시하는 영역 -->
+          
+          <div class="d-flex justify-content-end" style="position: absolute; top: 50em; left: 75%; z-index: 999;">
+            <div class="card mt-5" style="width: 30rem; height: 14rem;">
+                <div class="card-body">
+                  
+                  
+
+                </div>
+              </div>
+          </div>
+
+
         </div>
         <!-- end::Kakao Map -->
+
       </div>
+
     </div>
   </div>
+
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
