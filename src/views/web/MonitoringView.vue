@@ -70,11 +70,16 @@ const updatePolyline = (lat, lng) => {
 
 // 테스트용 gps 더미데이터 생성기
 const simulateGpsData = () => {
+  // 시작 좌표
+  let initLat = 37.515732;
+  let initLong = 127.033695;
   setInterval(() => {
-    const newLat = 36.5 + Math.random() * 0.01; // 랜덤 위도 시뮬레이션
-    const newLng = 127.5 + Math.random() * 0.01; // 랜덤 경도 시뮬레이션
-    updatePolyline(newLat, newLng); // 폴리라인 업데이트
-  }, 3000); // 3초마다 업데이트
+    const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 시뮬레이션
+    const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 시뮬레이션
+    initLat += newLat;
+    initLong += newLng;
+    updatePolyline(initLat, initLong); // 폴리라인 업데이트
+  }, 10); // 3초마다 업데이트
 };
 
 // 페이지가 로드될 때 스크립트와 지도 초기화
