@@ -36,8 +36,49 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
             <!--begin::메인화면-->
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
-                <h1>앱 전체기록 테스트중입니당</h1>
+                
+
+                <div class="d-flex flex-row vh-40 tomato">
+
+
+                </div>
+
+                <div class="d-flex flex-row vh-20 tomato">
+
+                    <div class="text-align-center">
+                        <div>9월 총 운행거리 : 1004KM</div>
+                        <div>9월 총 운행시간 : 32시간 29분</div>
+                        <div>9월 총 운행건수 : 32건</div>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-row vh-20 tomato">
+
+d
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
+
             <!--end::메인화면-->
         </div>
 
