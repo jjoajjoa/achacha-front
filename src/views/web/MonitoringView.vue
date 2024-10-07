@@ -36,10 +36,14 @@ const loadMap = () => {
 
 // 페이지가 로드될 때 스크립트와 지도 초기화
 onMounted(async () => {
-  await loadScript(); // Load the Kakao Map script
-  loadMap(); // Initialize the map
+  await loadScript(); // 카카오맵 스크립트 불러오기
+  loadMap(); // 카카오맵 초기화
 });
+
+
 </script>
+
+
 
 <template>
   <div id="mainPage" class="d-flex flex-column">
@@ -52,7 +56,6 @@ onMounted(async () => {
 
         <!-- Begin::Kakao Map -->
         <div>
-          <KakaoMap />
           <div id="map" class="mt-0"></div>
         </div>
         <!-- end::Kakao Map -->
@@ -61,6 +64,4 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
