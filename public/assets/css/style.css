@@ -1,6 +1,7 @@
 .tomato {
     border: 2px solid tomato;
 }
+
 .olive {
     border: 2px solid olive;
 }
@@ -127,3 +128,11 @@
 }
 
 /*===== end::하단 내비게이션 =====*/
+
+/*===== begin::지도 api =====*/
+#map {
+    width: 100vw;
+    height: 100vh;
+}
+
+/*===== end::지도 api =====*/
