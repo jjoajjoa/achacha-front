@@ -3,7 +3,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 </script>
 
 <template>
-    <div id="mainPage" class="d-flex flex-column achacha-back-light-gray">
+    <div id="mainPage" class="d-flex flex-column bg-white">
 
         <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
             <!--begin::사이드바-->
