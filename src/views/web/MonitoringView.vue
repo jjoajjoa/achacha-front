@@ -29,8 +29,7 @@ const loadScript = () => {
   });
 };
 
-// 지도 및 선 초기화
-var polyline = null;
+
 
 // 카카오 맵, 마커, 폴리라인을 초기화하는 함수
 const initializeMap = () => {
@@ -162,13 +161,7 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error loading Kakao Maps script or initializing map:', error);
   }
-  try {
-    await loadScript(); // 카카오맵 스크립트 불러오기
-    loadMap(); // 카카오맵 초기화
-    simulateGpsData(); // GPS 더미데이터 집어넣기 (테스트)
-  } catch (error) {
-    console.error('Error loading Kakao Maps script:', error);
-  }
+  
 });
 </script>
 
