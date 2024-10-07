@@ -7,14 +7,14 @@ import 'v-calendar/style.css';
 
 <script>
 export default {
-  components: {
-    Calendar,
-  },
-  data() {
-    return {
-      date: new Date(),
-    };
-  },
+    components: {
+        Calendar,
+    },
+    data() {
+        return {
+            date: new Date(),
+        };
+    },
 }
 </script>
 
@@ -53,17 +53,17 @@ export default {
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
 
 
-                <div class="d-flex justify-content-center vh-40 tomato">
+                <div class="d-flex justify-content-center vh-40">
                     <!--캘린더-->
                     <div class="mt-3">
-                        <Calendar style="width: 350px;"/>
+                        <Calendar style="width: 350px;" />
                     </div>
 
                     <!--캘린더-->
 
                 </div>
 
-                <div class="d-flex flex-row justify-content-center vh-15 tomato">
+                <div class="d-flex flex-row justify-content-center vh-15">
 
                     <div class="fw-bold fs-2x mt-3">
                         <div>9월 총 운행거리 : 1004KM</div>
@@ -76,17 +76,18 @@ export default {
 
                 <!--begin::운행정보 카드-->
 
-                <div class="d-flex flex-row vh-25 tomato" style="height: 360px; overflow-y: auto;">
+                <div class="d-flex flex-row vh-25" style="height: 360px; overflow-y: auto;">
 
                     <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
                         data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2"
                         tabindex="0">
 
+
                         <div class="card achacha-back-light-gray" style="width: 28rem;">
 
-                            <div class="card-body mb-5 ms-5 border-30 w-300px achacha-back-yellow">
+                            <div class="card-body ms-2 mb-5 border-30 achacha-back-yellow">
 
-                                <div class="d-flex flex-colum ">
+                                <div class="d-flex flex-colum">
 
                                     <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
@@ -130,13 +131,10 @@ export default {
                                 </div>
 
                             </div>
-                        </div>
 
-                        <div class="card achacha-back-light-gray" style="width: 28rem;">
+                            <div class="card-body ms-2 mb-5 border-30 achacha-back-yellow">
 
-                            <div class="card-body mb-5 ms-5 border-30 w-300px achacha-back-yellow">
-
-                                <div class="d-flex flex-colum ">
+                                <div class="d-flex flex-colum">
 
                                     <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
