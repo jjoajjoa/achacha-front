@@ -1,12 +1,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import truckImage from '@/assets/truck.png'; // Import image properly
 
 // 트럭의 경로: 좌표 점들의 배열
 const linePath = ref([]);
 
-// 트럭의 위치를 담는 배열
-const markersPosition = ref([]);
+
+
+// 마커들을 담아둘 배열
+const markers = ref([]);
 
 // 지도 및 선 초기화
 var polyline = null;
@@ -32,8 +35,8 @@ const loadScript = () => {
   });
 };
 
-// 마커들을 담아둘 배열
-var markers = [];
+
+
 
 
 // 카카오 맵, 마커, 폴리라인을 초기화하는 함수
@@ -48,17 +51,27 @@ const initializeMap = () => {
   // 맵 인스턴스를 생성하고 전역 맵 변수에 할당
   map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-  var imageSrc = require('@/assets/truck.png'), // 마커이미지의 주소입니다    
-    imageSize = new window.kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-    imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
-
-  var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+  const imageSize = new window.kakao.maps.Size(64, 69) // 마커이미지의 크기입니다
+  const imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+  const markerImage = new window.kakao.maps.MarkerImage(truckImage, imageSize, imageOption)
 
 
 
 
-  // 마커 위치 생성
+  // // 마커 위치를 저장하는 배열
+  // const markersPosition = ref([]);
+  // markersPosition.value = null;
+
+  // // markerPosition 배열에 새로운 좌표를 집어넣는 함수(새로운 차량이 운행을 시작했을 경우 실행하면 됨)
+  // const addMarker = ((name,lat,lng) => {
+
+  //   markersPosition.value.push({
+  //     title: name,
+  //     latlng: new window.kakao.maps.LatLng(lat, lng)
+  //   })
+  // })
+
+  // 마커 위치를 저장하는 배열
   var markerPosition = [
     {
       title: '김세헌',
@@ -88,38 +101,27 @@ const initializeMap = () => {
   ]
 
 
-
   // 마커 생성
   for (let i = 0; i < markerPosition.length; i++) {
-    var marker = new window.kakao.maps.Marker({
+    let marker = new window.kakao.maps.Marker({
       position: markerPosition[i].latlng,
       title: markerPosition[i].title,
       image: markerImage
     });
-    markers.push(marker);
+    markers.value.push(marker);
+
+    // 마커 클릭 이벤트 등록
+    window.kakao.maps.event.addListener(marker, 'click', function () {
+      const infowindow = new window.kakao.maps.InfoWindow({
+        content: `<div style="padding:5px;">현재 졸음점수: \${score}</div>`,
+        removable: true,
+      });
+      infowindow.open(map, marker);
+    });
+
+    // 마커를 지도에 표시
+    marker.setMap(map);
   }
-
-  // 마커를 지도에 표시
-  for (let i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-
-  // 마커 위에 표시될 안내창
-  var iwContent = '<div style="padding:5px;">현재 졸음점수: 30</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwRemoveable = true;
-
-  // 인포윈도우를 생성합니다
-  var infowindow = new window.kakao.maps.InfoWindow({
-    content: iwContent,
-    removable: iwRemoveable
-  });
-
-  // 마커에 클릭이벤트를 등록합니다
-  window.kakao.maps.event.addListener(marker, 'click', function () {
-    // 마커 위에 인포윈도우를 표시합니다
-    infowindow.open(map, marker);
-  });
-
 
   // 폴리라인 생성 및 초기화
   polyline = new window.kakao.maps.Polyline({
@@ -132,9 +134,10 @@ const initializeMap = () => {
 
   // 폴리라인을 지도에 표시
   polyline.setMap(map);
+
 };
 
-// 새로운 GPS 데이터를 사용하여 폴리라인을 동적으로 업데이트하는 함수
+// 새로운 GPS 데이터를 사용하여 폴리라인을 업데이트하는 함수
 const updatePolyline = (lat, lng) => {
   if (!polyline) {
     console.warn('Polyline not initialized yet.');
@@ -146,35 +149,34 @@ const updatePolyline = (lat, lng) => {
   polyline.setPath(linePath.value); // 지도에서 폴리라인 경로 업데이트
 };
 
-// 새로운 GPS 데이터를 사용하여 마커를 동적으로 업데이트하는 함수
-const updateMarker = (lat, lng) => {
-  if (!markers) {
-    console.warn('Marker not initialized yet.');
-    return;
-  }
+// 새로운 GPS 데이터를 사용하여 마커의 위치를 업데이트하는 함수
+const updateMarker = () => {
+  markers.value.forEach((marker) => {
+    marker.setPosition(new window.kakao.maps.LatLng(marker.getPosition().getLat() + (vecGen().latVec), marker.getPosition().getLng() + (vecGen().lngVec)));
+  });
 
-  // 업데이트된 GPS 정보를 바탕으로 마커 위치를 갱신
-  for (let i = 0; i < markersPosition.value.length; i++) {
+  
+};
 
-    markersPosition.value[i] = {
-      latlng: new window.kakao.maps.LatLng(lat, lng)
-    }
-
-    // 새로운 좌표로 마크를 업데이트
-  }
+// 무작위 벡터 생성기
+const vecGen = () => {
+  const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 변화량
+  const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 변화량
+  const coord = {latVec: newLat, lngVec: newLng};
+  return coord;
 }
+
 
 // GPS 데이터 업데이트를 시뮬레이션하는 함수 (테스트용)
 const simulateGpsData = () => {
+  vecGen();
   let initLat = 37.515732;
   let initLong = 127.033695;
   setInterval(() => {
-    const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 변화량
-    const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 변화량
-    initLat += newLat;
-    initLong += newLng;
+    initLat += vecGen().latVec;
+    initLong += vecGen().lngVec;
     updatePolyline(initLat, initLong); // 새로운 좌표로 폴리라인 업데이트
-    updateMarker(initLat, initLong);
+    updateMarker(); // 새로운 좌표로 마커 업데이트
   }, 1000); // 1초마다 업데이트
 };
 
