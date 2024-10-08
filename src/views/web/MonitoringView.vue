@@ -264,16 +264,15 @@ onMounted(async () => {
 
       </div>
 
-
         <!-- Begin::Kakao Map -->
         <div>
           <KakaoMap />
           <div id="map" class="mt-0"></div>
         </div>
         <!-- end::Kakao Map -->
-      </div>
     </div>
   </div>
+  
 
 </template>
 
