@@ -3,11 +3,11 @@ import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
 import router from '@/router/index.js';
 
-function goToOperationsView(){
+function goToOperationsView() {
     router.replace({ path: '/appoperations' })
 }
 
-function goToMyPage(){
+function goToMyPage() {
     router.replace({ path: '/appmypage' })
 }
 
@@ -16,7 +16,7 @@ function goToMyPage(){
 <template>
     <div id="mainPage" class="d-flex flex-column">
 
-        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2">
+        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2 " style="background-color:#029EBE;">
 
             <!--begin::햄버거 메뉴-->
             <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
@@ -56,9 +56,10 @@ function goToMyPage(){
                     <div class="col-6">
 
                         <div class="card ms-10 mt-5" style="width: 10rem;">
-                            
-                            <img @click="goToMyPage()" src="@\assets\사람사진.png" class="card-img-top" style="width: 10rem;" alt="...">
-                            
+
+                            <img @click="goToMyPage()" src="@\assets\사람사진.png" class="card-img-top"
+                                style="width: 10rem;" alt="...">
+
                         </div>
 
 
@@ -84,7 +85,8 @@ function goToMyPage(){
 
                 <!--begin::전체기록 버튼-->
                 <div class="d-flex flex-row justify-content-end mb-5">
-                    <button type="button" @click="goToOperationsView()" class="btn btn-achacha btn-sm me-5">전체기록</button>
+                    <button type="button" @click="goToOperationsView()"
+                        class="btn btn-achacha btn-sm me-5">전체기록</button>
                 </div>
                 <!--end::전체기록 버튼-->
 

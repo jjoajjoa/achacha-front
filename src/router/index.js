@@ -33,6 +33,11 @@ const routes = [
         component: () => import('../views/web/MonitoringView.vue')
     },
     {
+        path: '/realtimeoperationlist',
+        name: 'realtimeoperationlist',
+        component: () => import('../views/web/RealTimeOperationListView.vue')
+    },
+    {
         path: '/apphome',
         name: 'apphome',
         component: () => import('../views/app/AppHomeView.vue')
