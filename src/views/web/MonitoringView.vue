@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
 
@@ -263,7 +264,16 @@ onMounted(async () => {
 
       </div>
 
+
+        <!-- Begin::Kakao Map -->
+        <div>
+          <KakaoMap />
+          <div id="map" class="mt-0"></div>
+        </div>
+        <!-- end::Kakao Map -->
+      </div>
     </div>
   </div>
 
 </template>
+
