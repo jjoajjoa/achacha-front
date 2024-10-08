@@ -16,6 +16,10 @@ function goToMonitoring() {
     router.replace({ path: '/monitoring' });
 }
 
+function goToRealtimeoperationlist() {
+    router.replace({ path: '/realtimeoperationlist' })
+}
+
 // 하단 내비게이션 메뉴 버튼 선택 인덱스
 const navItemSelected = ref(0);
 
@@ -32,6 +36,9 @@ function selectNavItem(index) {
     } else if (index == 2) {
         titleText.value = '전체현황 화면';
         goToMonitoring();
+    } else if (index == 3) {
+        titleText.value = '실시간운행리스트 화면';
+        goToRealtimeoperationlist();
     }
 
     // 드로어 닫기
@@ -57,8 +64,8 @@ onMounted(() => {
         <!--begin::로고이미지(PC)-->
         <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
             <a href="#">
-                <img alt="Logo" src="/assets/media/framework-logos/go.png" class="h-25px app-sidebar-logo-default" />
-                <img alt="Logo" src="/assets/media/framework-logos/go.png" class="h-20px app-sidebar-logo-minimize" />
+                <img alt="Logo" src="@\assets\logo2.png" class="h-25px app-sidebar-logo-default"/>
+                <img alt="Logo" src="@\assets\logo2.png" class="h-20px app-sidebar-logo-minimize"/>
             </a>
             <div id="kt_app_sidebar_toggle"
                 class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-30px w-30px position-absolute top-50 start-100 translate-middle rotate"
@@ -153,13 +160,17 @@ onMounted(() => {
                         <!--end:메뉴 아이템-->
 
                         <!-- begin::사이드바 하단 아이콘 -->
+
                         <div class="d-flex flex-row" style="margin-top: 30em; border-top: 2px solid black;">
 
+
                             <div class="col-3"></div>
 
                             <div class="col-3"></div>
+
 
                             <div class="col-3 mt-3">
+
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         class="bi bi-gear text-dark" viewBox="0 0 16 16">
@@ -172,6 +183,7 @@ onMounted(() => {
                             </div>
 
                             <div class="col-3 mt-3">
+
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         class="bi bi-exclamation-triangle text-danger" viewBox="0 0 16 16">

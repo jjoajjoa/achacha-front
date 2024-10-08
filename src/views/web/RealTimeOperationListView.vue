@@ -185,47 +185,133 @@ onMounted(async () => {
           <!-- Begin::지도 위에 표시하는 영역 -->
           <div style="position: absolute; top: 20px; z-index: 999;">
 
-            <!-- begin::대시보드 영역 -->
-            <div style="margin-left: 22em;">
 
-              <!-- Begin::대시보드 스위치 버튼 영역 -->
-              <div class="achacha-back-light-gray p-4 rounded" style="border: 2px solid black;">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                  <label class="form-check-label fw-bold text-dark" for="flexSwitchCheckDefault">대시보드 보기</label>
+            <!--begin::지도 위 카드-->
+            <div class="card" style="width: 50em; height:70em; margin-left:22em">
+              <div class="card-body">
+
+                <div class="d-flex flex-row vh-15 tomato">
+
+                  실시간 운행 리스트
+
                 </div>
+
+                <div class="d-flex flex-row vh-6 tomato">
+
+                  <div class="col-6 olive">
+                    검색
+                  </div>
+
+                  <div class="col-6 olive">
+                    d
+                  </div>
+
+                </div>
+
+                <!--begin::운행 리스트 표-->
+                <div class="d-flex flex-row tomato" style="height:55vh">
+
+                  <table class="table table-bordered">
+
+
+
+                    <tbody>
+                      <tr style="height:10px">
+
+                        <th scope="col">운행번호</th>
+                        <th scope="col">상차지</th>
+                        <th scope="col">하차지</th>
+                        <th scope="col">기사</th>
+                        <th scope="col">운행정보</th>
+                        <th scope="col">이상감지</th>
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>운행중</td>
+                        <td>정상운전</td>
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>휴식중</td>
+                        <td>졸음운전주의</td>
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>운행중</td>
+                        <td>정상운전</td>
+
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>운행중</td>
+                        <td>운전부적합</td>
+
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>휴식중</td>
+                        <td>졸음운전주의</td>
+
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>운행중</td>
+                        <td>운전부적합</td>
+
+                      </tr>
+                      <tr>
+
+                        <td>acc-001</td>
+                        <td>포항</td>
+                        <td>인천</td>
+                        <td>김택배</td>
+                        <td>휴식중</td>
+                        <td>정상운전</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+                <div class="d-flex flex-row tomato vh-15">
+
+                  f
+
+                </div>
+
+
+
+
+
               </div>
-              <!-- end::대시보드 스위치 버튼 영역 -->
-
-              <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
-              <div>
-
-                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h2>전체차량대수</h2>
-                    <h2>26대</h2>
-                  </div>
-                </div>
-
-                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h4>운전부적합직원</h4>
-                    <h2>9명</h2>
-                  </div>
-                </div>
-
-                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h4>운행중차량대수</h4>
-                    <h2>12대</h2>
-                  </div>
-                </div>
-
-              </div>
-              <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
             </div>
-            <!-- end::대시보드 영역 -->
 
+            <!--end::지도 위 카드-->
 
 
           </div>
@@ -241,17 +327,17 @@ onMounted(async () => {
                     <img src="@/assets/truck.png" style="width: 3em;">
                     <h1 class="ms-5">정상 운전 직원</h1>
                   </div>
-                  
+
                   <div class="d-flex flex-row mb-4">
                     <img src="@/assets/bluetruck.png" style="width: 3em;">
                     <h1 class="ms-5">운전 부적합 직원</h1>
                   </div>
-                  
+
                   <div class="d-flex flex-row">
                     <img src="@/assets/redtruck.png" style="width: 3em;">
                     <h1 class="ms-5">졸음운전 주의 직원</h1>
                   </div>
-                  
+
                 </div>
 
               </div>
@@ -265,15 +351,14 @@ onMounted(async () => {
       </div>
 
 
-        <!-- Begin::Kakao Map -->
-        <div>
-          <KakaoMap />
-          <div id="map" class="mt-0"></div>
-        </div>
-        <!-- end::Kakao Map -->
+      <!-- Begin::Kakao Map -->
+      <div>
+        <KakaoMap />
+        <div id="map" class="mt-0"></div>
       </div>
+      <!-- end::Kakao Map -->
     </div>
-  
+  </div>
+
 
 </template>
-

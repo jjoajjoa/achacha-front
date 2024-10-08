@@ -47,7 +47,7 @@ function goToHome(){
 
                     <!--begin::로고사진-->
                     <div class="card align-self-center mt-40 " style="width: 10rem;">
-                        <img src="@\assets\logo1.png" class="card-img-top" alt="...">
+                        <img src="@\assets\logo2.png" class="card-img-top" alt="...">
 
                     </div>
                     <!--end::로고사진-->
