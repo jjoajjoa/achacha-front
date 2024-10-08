@@ -11,7 +11,7 @@ function goToHome(){
 <template>
     <div id="mainPage" class="d-flex flex-column achacha-back-light-gray">
 
-        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2">
+        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2" style="background-color:#029EBE;">
 
             <!--begin::햄버거 메뉴-->
             <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
