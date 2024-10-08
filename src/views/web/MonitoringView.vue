@@ -2,9 +2,15 @@
 
 import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import truckImage from '@/assets/truck.png'; // Import image properly
 
 // 트럭의 경로: 좌표 점들의 배열
 const linePath = ref([]);
+
+
+
+// 마커들을 담아둘 배열
+const markers = ref([]);
 
 // 지도 및 선 초기화
 var polyline = null;
@@ -32,6 +38,8 @@ const loadScript = () => {
 
 
 
+
+
 // 카카오 맵, 마커, 폴리라인을 초기화하는 함수
 const initializeMap = () => {
   // 지도 컨테이너와 옵션 정의
@@ -44,14 +52,27 @@ const initializeMap = () => {
   // 맵 인스턴스를 생성하고 전역 맵 변수에 할당
   map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-  var imageSrc = require('@/assets/truck.png'), // 마커이미지의 주소입니다    
-    imageSize = new window.kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-    imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+  const imageSize = new window.kakao.maps.Size(64, 69) // 마커이미지의 크기입니다
+  const imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+  const markerImage = new window.kakao.maps.MarkerImage(truckImage, imageSize, imageOption)
 
 
-  var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
 
-  // 마커 위치 생성
+
+  // // 마커 위치를 저장하는 배열
+  // const markersPosition = ref([]);
+  // markersPosition.value = null;
+
+  // // markerPosition 배열에 새로운 좌표를 집어넣는 함수(새로운 차량이 운행을 시작했을 경우 실행하면 됨)
+  // const addMarker = ((name,lat,lng) => {
+
+  //   markersPosition.value.push({
+  //     title: name,
+  //     latlng: new window.kakao.maps.LatLng(lat, lng)
+  //   })
+  // })
+
+  // 마커 위치를 저장하는 배열
   var markerPosition = [
     {
       title: '김세헌',
@@ -80,40 +101,28 @@ const initializeMap = () => {
 
   ]
 
-  // 마커들을 담아둘 배열
-  var markers = [];
 
   // 마커 생성
-  for (var i = 0; i < markerPosition.length; i++) {
-    var marker = new window.kakao.maps.Marker({
+  for (let i = 0; i < markerPosition.length; i++) {
+    let marker = new window.kakao.maps.Marker({
       position: markerPosition[i].latlng,
       title: markerPosition[i].title,
       image: markerImage
     });
-    markers.push(marker);
+    markers.value.push(marker);
+
+    // 마커 클릭 이벤트 등록
+    window.kakao.maps.event.addListener(marker, 'click', function () {
+      const infowindow = new window.kakao.maps.InfoWindow({
+        content: `<div style="padding:5px;">현재 졸음점수: \${score}</div>`,
+        removable: true,
+      });
+      infowindow.open(map, marker);
+    });
+
+    // 마커를 지도에 표시
+    marker.setMap(map);
   }
-
-  // 마커를 지도에 표시
-  for (var j = 0; j < markers.length; j++) {
-    markers[j].setMap(map);
-  }
-
-  // 마커 위에 표시될 안내창
-  var iwContent = '<div style="padding:5px;">현재 졸음점수: 30</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwRemoveable = true;
-
-  // 인포윈도우를 생성합니다
-  var infowindow = new window.kakao.maps.InfoWindow({
-    content: iwContent,
-    removable: iwRemoveable
-  });
-
-  // 마커에 클릭이벤트를 등록합니다
-  window.kakao.maps.event.addListener(marker, 'click', function () {
-    // 마커 위에 인포윈도우를 표시합니다
-    infowindow.open(map, marker);
-  });
-
 
   // 폴리라인 생성 및 초기화
   polyline = new window.kakao.maps.Polyline({
@@ -126,9 +135,10 @@ const initializeMap = () => {
 
   // 폴리라인을 지도에 표시
   polyline.setMap(map);
+
 };
 
-// 새로운 GPS 데이터를 사용하여 폴리라인을 동적으로 업데이트하는 함수
+// 새로운 GPS 데이터를 사용하여 폴리라인을 업데이트하는 함수
 const updatePolyline = (lat, lng) => {
   if (!polyline) {
     console.warn('Polyline not initialized yet.');
@@ -140,18 +150,40 @@ const updatePolyline = (lat, lng) => {
   polyline.setPath(linePath.value); // 지도에서 폴리라인 경로 업데이트
 };
 
+// 새로운 GPS 데이터를 사용하여 마커의 위치를 업데이트하는 함수
+const updateMarker = () => {
+  markers.value.forEach((marker) => {
+    marker.setPosition(new window.kakao.maps.LatLng(marker.getPosition().getLat() + (vecGen().latVec), marker.getPosition().getLng() + (vecGen().lngVec)));
+  });
+
+  
+};
+
+// 무작위 벡터 생성기
+const vecGen = () => {
+  const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 변화량
+  const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 변화량
+  const coord = {latVec: newLat, lngVec: newLng};
+  return coord;
+}
+
+
 // GPS 데이터 업데이트를 시뮬레이션하는 함수 (테스트용)
 const simulateGpsData = () => {
+  vecGen();
   let initLat = 37.515732;
   let initLong = 127.033695;
   setInterval(() => {
-    const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 변화량
-    const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 변화량
-    initLat += newLat;
-    initLong += newLng;
+    initLat += vecGen().latVec;
+    initLong += vecGen().lngVec;
     updatePolyline(initLat, initLong); // 새로운 좌표로 폴리라인 업데이트
+    updateMarker(); // 새로운 좌표로 마커 업데이트
   }, 1000); // 1초마다 업데이트
 };
+
+// 대시보드 표시 상태를 제어하는 변수
+const showDashboard = ref(false);  // 스위치가 꺼져있으면 false, 켜져있으면 true
+
 
 // Vue 컴포넌트가 마운트된 후 지도를 초기화하는 라이프사이클 훅
 onMounted(async () => {
@@ -189,34 +221,34 @@ onMounted(async () => {
             <div style="margin-left: 22em;">
 
               <!-- Begin::대시보드 스위치 버튼 영역 -->
-              <div class="achacha-back-light-gray p-4 rounded" style="border: 2px solid black;">
+              <div class="achacha-back-light-gray p-4 rounded" style="width: 14rem; border: 2px solid black;">
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <input v-model="showDashboard" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                   <label class="form-check-label fw-bold text-dark" for="flexSwitchCheckDefault">대시보드 보기</label>
                 </div>
               </div>
               <!-- end::대시보드 스위치 버튼 영역 -->
 
               <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
-              <div>
+              <div v-if="showDashboard">
 
                 <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h2>전체차량대수</h2>
+                  <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="mb-5">전체차량대수</h2>
                     <h2>26대</h2>
                   </div>
                 </div>
 
                 <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h4>운전부적합직원</h4>
+                  <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                    <h4 class="mb-5">운전부적합직원</h4>
                     <h2>9명</h2>
                   </div>
                 </div>
 
                 <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h4>운행중차량대수</h4>
+                  <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                    <h4 class="mb-5">운행중차량대수</h4>
                     <h2>12대</h2>
                   </div>
                 </div>
@@ -231,25 +263,30 @@ onMounted(async () => {
           </div>
           <!-- End::지도 위에 표시하는 영역 -->
 
-          <div style="position: absolute; top: 50em; left: 80%; z-index: 999;">
-            <div class="card mt-5" style="width: 25rem; height: 14rem; border: 2px solid black;">
+          <div style="position: absolute; top: 46em; left: 80%; z-index: 999;">
+            <div class="card mt-5" style="width: 21rem; height: 15rem; border: 2px solid black;">
               <div class="card-body">
 
                 <div class="d-flex flex-column">
 
-                  <div class="d-flex flex-row mb-4">
+                  <div class="d-flex flex-row">
                     <img src="@/assets/truck.png" style="width: 3em;">
-                    <h1 class="ms-5">정상 운전 직원</h1>
+                    <h1 class="ms-5">정상 운전</h1>
                   </div>
                   
-                  <div class="d-flex flex-row mb-4">
+                  <div class="d-flex flex-row">
                     <img src="@/assets/bluetruck.png" style="width: 3em;">
-                    <h1 class="ms-5">운전 부적합 직원</h1>
+                    <h1 class="ms-5">휴식중</h1>
                   </div>
                   
                   <div class="d-flex flex-row">
                     <img src="@/assets/redtruck.png" style="width: 3em;">
-                    <h1 class="ms-5">졸음운전 주의 직원</h1>
+                    <h1 class="ms-5">졸음운전 주의</h1>
+                  </div>
+
+                  <div class="d-flex flex-row">
+                    <img src="@/assets/redredtruck.png" style="width: 3em;">
+                    <h1 class="ms-5">과로운전 주의</h1>
                   </div>
                   
                 </div>
