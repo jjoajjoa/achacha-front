@@ -9,6 +9,7 @@
   },
   "dependencies": {
 
+  
     "achacha-front": "file:",
 
     "@popperjs/core": "^2.11.8",

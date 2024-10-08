@@ -18,6 +18,16 @@ function goToMonitoring() {
     router.replace({ path: '/monitoring' });
 }
 
+
+function goToRealtimeoperationlist() {
+    router.replace({ path: '/realtimeoperationlist' })
+}
+
+// 하단 내비게이션 메뉴 버튼 선택 인덱스
+const navItemSelected = ref(0);
+
+
+
 // 하단 내비게이션 메뉴 버튼 선택
 function selectNavItem(index) {
     console.log(`selectNavItem called -> ${index}`);
@@ -31,6 +41,9 @@ function selectNavItem(index) {
     } else if (index === 2) {
         titleText.value = '전체현황 화면';
         goToMonitoring();
+    } else if (index == 3) {
+        titleText.value = '실시간운행리스트 화면';
+        goToRealtimeoperationlist();
     }
 
     // 드로어 닫기
@@ -53,6 +66,7 @@ onMounted(() => {
 </script>
 
 <template>
+
    
         <!--begin::사이드바-->
         <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar"

@@ -308,7 +308,6 @@ onMounted(async () => {
         </div>
         <!-- end::Kakao Map -->
     </div>
-  </div>
   
 
 </template>
