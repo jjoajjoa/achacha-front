@@ -1,6 +1,11 @@
 <script setup>
 import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import router from '@/router/index.js';
+
+function goToHome(){
+    router.replace({ path : '/apphome'})
+}
 </script>
 
 <template>
@@ -38,7 +43,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
 
                 <!--begin::로고 & 회사이름-->
-                <div class="d-flex flex-column  vh-40 tomato">
+                <div class="d-flex flex-column  vh-40">
 
                     <!--begin::로고사진-->
                     <div class="card align-self-center mt-40 " style="width: 10rem;">
@@ -55,7 +60,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                 <!--end::로고 & 회사이름-->
 
                 <!--begin::로고&회사이름 아래부분-->
-                <div class="d-flex flex-column vh-40 tomato">
+                <div class="d-flex flex-column vh-40">
                     <!--begin::회사 select-->
                     <div>
                         <select class="form-select w-300px ms-10" aria-label="Default select example">
@@ -87,7 +92,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                     <!--end::자동로그인 체크-->
 
                     <!--begin::로그인 버튼-->
-                    <button type="button" class="btn btn-achacha w-100px align-self-center ">로그인</button>
+                    <button @click="goToHome()" type="button" class="btn btn-achacha w-100px align-self-center ">로그인</button>
                     <!--end::로그인 버튼-->
 
                 </div>

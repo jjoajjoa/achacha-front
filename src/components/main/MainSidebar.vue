@@ -153,13 +153,17 @@ onMounted(() => {
                         <!--end:메뉴 아이템-->
 
                         <!-- begin::사이드바 하단 아이콘 -->
-                        <div class="d-flex flex-row" style="margin-top: 30em;">
+
+                        <div class="d-flex flex-row" style="margin-top: 30em; border-top: 2px solid black;">
+
 
                             <div class="col-3"></div>
 
                             <div class="col-3"></div>
 
-                            <div class="col-3">
+
+                            <div class="col-3 mt-3">
+
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         class="bi bi-gear text-dark" viewBox="0 0 16 16">
@@ -171,7 +175,8 @@ onMounted(() => {
                                 </a>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-3 mt-3">
+
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         class="bi bi-exclamation-triangle text-danger" viewBox="0 0 16 16">
