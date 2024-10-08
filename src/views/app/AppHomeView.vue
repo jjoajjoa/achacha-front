@@ -1,12 +1,22 @@
 <script setup>
 import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import router from '@/router/index.js';
+
+function goToOperationsView() {
+    router.replace({ path: '/appoperations' })
+}
+
+function goToMyPage() {
+    router.replace({ path: '/appmypage' })
+}
+
 </script>
 
 <template>
     <div id="mainPage" class="d-flex flex-column">
 
-        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2">
+        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2 " style="background-color:#029EBE;">
 
             <!--begin::햄버거 메뉴-->
             <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
@@ -40,13 +50,15 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
 
                 <!--begin:: 프로필사진, 소속, 이름-->
-                <div class="d-flex flex-row vh-30 olive">
+                <div class="d-flex flex-row vh-30">
 
                     <!--begin::프로필사진-->
-                    <div class="col-6 tomato">
+                    <div class="col-6">
 
                         <div class="card ms-10 mt-5" style="width: 10rem;">
-                            <img src="@\assets\사람사진.png" class="card-img-top" style="width: 10rem;" alt="...">
+
+                            <img @click="goToMyPage()" src="@\assets\사람사진.png" class="card-img-top"
+                                style="width: 10rem;" alt="...">
 
                         </div>
 
@@ -55,13 +67,13 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                     <!--end::프로필사진-->
 
                     <!--begin::소속, 이름-->
-                    <div class="col-6 tomato">
+                    <div class="col-6">
 
-                        <div class="h-60px fw-bold mt-10 ms-5 fs-4x olive">
+                        <div class="h-60px fw-bold mt-10 ms-5 fs-4x">
                             <p>xx물류</p>
                         </div>
 
-                        <div class="h-60px fw-bold mt-10 ms-5 fs-4x olive">
+                        <div class="h-60px fw-bold mt-10 ms-5 fs-4x">
                             <p>김배달</p>
                         </div>
 
@@ -72,13 +84,14 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                 <!--end:: 프로필사진, 소속, 이름-->
 
                 <!--begin::전체기록 버튼-->
-                <div class="d-flex flex-row justify-content-end">
-                    <button type="button" class="btn btn-achacha btn-sm me-5">전체기록</button>
+                <div class="d-flex flex-row justify-content-end mb-5">
+                    <button type="button" @click="goToOperationsView()"
+                        class="btn btn-achacha btn-sm me-5">전체기록</button>
                 </div>
                 <!--end::전체기록 버튼-->
 
                 <!--begin::아래 스크롤 운행기록 -->
-                <div class="tomato" style="height: 360px; overflow-y: auto;">
+                <div class="" style="height: 360px; overflow-y: auto;">
 
                     <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
                         data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2"
@@ -90,9 +103,9 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
 
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
 
-                                <div class="d-flex flex-colum tomato">
+                                <div class="d-flex flex-colum">
 
-                                    <div class="col-2 ms-5 mt-3 olive">
+                                    <div class="col-2 ms-5 mt-3">
                                         <div class="fw-bold fs-2x">12</div>
                                         <div class="fw-bold ms-1">30</div>
                                         <div class="fw-bold ms-2">↓</div>
@@ -100,7 +113,7 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                         <div class="fw-bold ms-1">30</div>
                                     </div>
 
-                                    <div class="col-10 ms-5 olive">
+                                    <div class="col-10 ms-5">
 
                                         <div class="flex-row fw-bold ms-1 ">
                                             2024-10-02
@@ -134,12 +147,6 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
                                 </div>
 
                             </div>
-
-
-                            
-
-
-                            
 
 
                             <div class="card-body mb-5 border-30 achacha-back-yellow">
