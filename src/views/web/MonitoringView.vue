@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
 import truckImage from '@/assets/truck.png'; // Import image properly
@@ -300,7 +301,15 @@ onMounted(async () => {
 
       </div>
 
+        <!-- Begin::Kakao Map -->
+        <div>
+          <KakaoMap />
+          <div id="map" class="mt-0"></div>
+        </div>
+        <!-- end::Kakao Map -->
     </div>
   </div>
+  
 
 </template>
+

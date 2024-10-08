@@ -1,6 +1,21 @@
 <script setup>
 import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import { Calendar } from 'v-calendar';
+import 'v-calendar/style.css';
+</script>
+
+<script>
+export default {
+    components: {
+        Calendar,
+    },
+    data() {
+        return {
+            date: new Date(),
+        };
+    },
+}
 </script>
 
 <template>
@@ -34,10 +49,152 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
             <!--end::사이드바-->
 
             <!--begin::메인화면-->
-            <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+            <div class="app-main flex-column flex-row-fluid achacha-back-light-gray" id="kt_app_main">
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
-                <h1>앱 전체기록 테스트중입니당</h1>
+
+
+                <div class="d-flex justify-content-center vh-40">
+                    <!--캘린더-->
+                    <div class="mt-3">
+                        <Calendar style="width: 350px;" />
+                    </div>
+
+                    <!--캘린더-->
+
+                </div>
+
+                <div class="d-flex flex-row justify-content-center vh-15">
+
+                    <div class="fw-bold fs-2x mt-3">
+                        <div>9월 총 운행거리 : 1004KM</div>
+                        <div>9월 총 운행시간 : 32시간 29분</div>
+                        <div>9월 총 운행건수 : 32건</div>
+
+                    </div>
+
+                </div>
+
+                <!--begin::운행정보 카드-->
+
+                <div class="d-flex flex-row vh-25" style="height: 360px; overflow-y: auto;">
+
+                    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
+                        data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2"
+                        tabindex="0">
+
+
+                        <div class="card achacha-back-light-gray" style="width: 28rem;">
+
+                            <div class="card-body ms-2 mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 ms-5 mt-3">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 ms-5">
+
+                                        <div class="flex-row fw-bold ms-1 ">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x ">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x ">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row ">
+
+                                            <div class="col-6 ">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 ">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body ms-2 mb-5 border-30 achacha-back-yellow">
+
+                                <div class="d-flex flex-colum">
+
+                                    <div class="col-2 ms-5 mt-3">
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                        <div class="fw-bold ms-2">↓</div>
+                                        <div class="fw-bold fs-2x">12</div>
+                                        <div class="fw-bold ms-1">30</div>
+                                    </div>
+
+                                    <div class="col-10 ms-5">
+
+                                        <div class="flex-row fw-bold ms-1 ">
+                                            2024-10-02
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x ">
+                                            청주 물류센터
+                                        </div>
+
+                                        <div class="flex-row fw-bold fs-3x ">
+                                            부산 물류센터
+                                        </div>
+
+                                        <div class="d-flex flex-row ">
+
+                                            <div class="col-6 ">
+                                                <div class="fw-bold">운행시간</div>
+                                                <div>15시간 32분</div>
+                                            </div>
+
+                                            <div class="col-6 ">
+                                                <div class="fw-bold">운행거리</div>
+                                                <div>1004km</div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <!--end::운행정보 카드-->
+
+
+
+
+
+
+
             </div>
+
             <!--end::메인화면-->
         </div>
 
