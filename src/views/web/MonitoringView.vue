@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
 import truckImage from '@/assets/truck.png'; // Import image properly
@@ -79,19 +80,19 @@ const initializeMap = () => {
     },
     {
       title: '김수현',
-      latlng: new window.kakao.maps.LatLng(37.1, 127.4)
+      latlng: new window.kakao.maps.LatLng(38, 127.4)
     },
     {
       title: '김아름',
-      latlng: new window.kakao.maps.LatLng(37.2, 127.2)
+      latlng: new window.kakao.maps.LatLng(40, 127.2)
     },
     {
       title: '김영욱',
-      latlng: new window.kakao.maps.LatLng(37.3, 127.3)
+      latlng: new window.kakao.maps.LatLng(36, 127.3)
     },
     {
       title: '이찬영',
-      latlng: new window.kakao.maps.LatLng(37.4, 127.2)
+      latlng: new window.kakao.maps.LatLng(39, 127.2)
     },
     {
       title: '최준호',
@@ -155,14 +156,14 @@ const updateMarker = () => {
     marker.setPosition(new window.kakao.maps.LatLng(marker.getPosition().getLat() + (vecGen().latVec), marker.getPosition().getLng() + (vecGen().lngVec)));
   });
 
-  
+
 };
 
 // 무작위 벡터 생성기
 const vecGen = () => {
   const newLat = Math.random() * 0.01 - 0.005; // 랜덤 위도 변화량
   const newLng = Math.random() * 0.01 - 0.005; // 랜덤 경도 변화량
-  const coord = {latVec: newLat, lngVec: newLng};
+  const coord = { latVec: newLat, lngVec: newLng };
   return coord;
 }
 
@@ -179,6 +180,10 @@ const simulateGpsData = () => {
     updateMarker(); // 새로운 좌표로 마커 업데이트
   }, 1000); // 1초마다 업데이트
 };
+
+// 대시보드 표시 상태를 제어하는 변수
+const showDashboard = ref(false);  // 스위치가 꺼져있으면 false, 켜져있으면 true
+
 
 // Vue 컴포넌트가 마운트된 후 지도를 초기화하는 라이프사이클 훅
 onMounted(async () => {
@@ -216,34 +221,38 @@ onMounted(async () => {
             <div style="margin-left: 22em;">
 
               <!-- Begin::대시보드 스위치 버튼 영역 -->
-              <div class="achacha-back-light-gray p-4 rounded" style="border: 2px solid black;">
+              <div class="achacha-back-light-gray p-4 rounded" style="width: 14rem; border: 2px solid black;">
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <input v-model="showDashboard" class="form-check-input" type="checkbox" role="switch"
+                    id="flexSwitchCheckDefault">
                   <label class="form-check-label fw-bold text-dark" for="flexSwitchCheckDefault">대시보드 보기</label>
                 </div>
               </div>
               <!-- end::대시보드 스위치 버튼 영역 -->
 
               <!-- begin::대시보드 스위치 눌렀을 때의 대시보드 영역  -->
-              <div>
+              <div v-if="showDashboard">
 
-                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h2>전체차량대수</h2>
+                <div class="card mt-5 achacha-back-light-gray"
+                  style="width: 14rem; height: 14rem; border: 2px solid black;">
+                  <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="mb-5">전체차량대수</h2>
                     <h2>26대</h2>
                   </div>
                 </div>
 
-                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h4>운전부적합직원</h4>
+                <div class="card mt-5 achacha-back-light-gray"
+                  style="width: 14rem; height: 14rem; border: 2px solid black;">
+                  <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                    <h4 class="mb-5">운전부적합직원</h4>
                     <h2>9명</h2>
                   </div>
                 </div>
 
-                <div class="card mt-5 achacha-back-light-gray" style="width: 14rem; height: 14rem; border: 2px solid black;">
-                  <div class="card-body text-center">
-                    <h4>운행중차량대수</h4>
+                <div class="card mt-5 achacha-back-light-gray"
+                  style="width: 14rem; height: 14rem; border: 2px solid black;">
+                  <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                    <h4 class="mb-5">운행중차량대수</h4>
                     <h2>12대</h2>
                   </div>
                 </div>
@@ -258,27 +267,32 @@ onMounted(async () => {
           </div>
           <!-- End::지도 위에 표시하는 영역 -->
 
-          <div style="position: absolute; top: 50em; left: 80%; z-index: 999;">
-            <div class="card mt-5" style="width: 25rem; height: 14rem; border: 2px solid black;">
+          <div style="position: absolute; top: 46em; left: 80%; z-index: 999;">
+            <div class="card mt-5" style="width: 21rem; height: 15rem; border: 2px solid black;">
               <div class="card-body">
 
                 <div class="d-flex flex-column">
 
-                  <div class="d-flex flex-row mb-4">
+                  <div class="d-flex flex-row">
                     <img src="@/assets/truck.png" style="width: 3em;">
-                    <h1 class="ms-5">정상 운전 직원</h1>
+                    <h1 class="ms-5">정상 운전</h1>
                   </div>
-                  
-                  <div class="d-flex flex-row mb-4">
+
+                  <div class="d-flex flex-row">
                     <img src="@/assets/bluetruck.png" style="width: 3em;">
-                    <h1 class="ms-5">운전 부적합 직원</h1>
+                    <h1 class="ms-5">휴식중</h1>
                   </div>
-                  
+
                   <div class="d-flex flex-row">
                     <img src="@/assets/redtruck.png" style="width: 3em;">
-                    <h1 class="ms-5">졸음운전 주의 직원</h1>
+                    <h1 class="ms-5">졸음운전 주의</h1>
                   </div>
-                  
+
+                  <div class="d-flex flex-row">
+                    <img src="@/assets/redredtruck.png" style="width: 3em;">
+                    <h1 class="ms-5">과로운전 주의</h1>
+                  </div>
+
                 </div>
 
               </div>
@@ -291,7 +305,13 @@ onMounted(async () => {
 
       </div>
 
+      <!-- Begin::Kakao Map -->
+      <div>
+        <KakaoMap />
+        <div id="map" class="mt-0"></div>
+      </div>
+      <!-- end::Kakao Map -->
     </div>
-  </div>
 
+  </div>
 </template>

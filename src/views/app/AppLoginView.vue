@@ -1,12 +1,17 @@
 <script setup>
 import MainBottomNavBar from '@/components/main/MainBottomNavBar.vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
+import router from '@/router/index.js';
+
+function goToHome(){
+    router.replace({ path : '/apphome'})
+}
 </script>
 
 <template>
-    <div id="mainPage" class="d-flex flex-column">
+    <div id="mainPage" class="d-flex flex-column achacha-back-light-gray">
 
-        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2">
+        <div id="headerPart" class="d-flex flex-stack flex-shrink-0 px-4 py-2" style="background-color:#029EBE;">
 
             <!--begin::햄버거 메뉴-->
             <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
@@ -36,7 +41,77 @@ import MainSidebar from '@/components/main/MainSidebar.vue';
             <!--begin::메인화면-->
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <RouterView id="bodyPart" class="flex-grow-1 p-0" />
-                <h1>앱 로그인 테스트중입니당</h1>
+
+                <!--begin::로고 & 회사이름-->
+                <div class="d-flex flex-column  vh-40">
+
+                    <!--begin::로고사진-->
+                    <div class="card align-self-center mt-40 " style="width: 10rem;">
+                        <img src="@\assets\logo2.png" class="card-img-top" alt="...">
+
+                    </div>
+                    <!--end::로고사진-->
+
+                    <div class="align-self-center" style="font-size: 25px;">
+                        <p>아차차</p>
+                    </div>
+
+                </div>
+                <!--end::로고 & 회사이름-->
+
+                <!--begin::로고&회사이름 아래부분-->
+                <div class="d-flex flex-column vh-40">
+                    <!--begin::회사 select-->
+                    <div>
+                        <select class="form-select w-300px ms-10" aria-label="Default select example">
+                            <option selected>소속선택</option>
+                            <option value="1">A물류</option>
+                            <option value="2">B물류</option>
+                            <option value="3">C물류</option>
+                        </select>
+                    </div>
+                    <!--end::회사 select-->
+
+
+                    <!--begin::사원번호 input-->
+                    <div><input type="text" class="mt-5 ms-10 w-300px vh-6 input" placeholder="사원번호"></div>
+
+                    <!--end::사원번호 input-->
+
+                    <!--begin::비밀번호 input-->
+                    <div><input type="password" class="mt-5 ms-10 w-300px vh-6 input" placeholder="비밀번호"></div>
+                    <!--end::비밀번호 input-->
+
+                    <!--begin::자동로그인 체크-->
+                    <div class="form-check ms-10 mt-5">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            자동로그인
+                        </label>
+                    </div>
+                    <!--end::자동로그인 체크-->
+
+                    <!--begin::로그인 버튼-->
+                    <button @click="goToHome()" type="button" class="btn btn-achacha w-100px align-self-center ">로그인</button>
+                    <!--end::로그인 버튼-->
+
+                </div>
+                <!--end::로고&회사이름 아래부분-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <!--end::메인화면-->
         </div>
