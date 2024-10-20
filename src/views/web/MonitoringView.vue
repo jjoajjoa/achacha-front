@@ -4,6 +4,9 @@ import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
 import truckImage from '@/assets/truck.png'; // Import image properly
 
+const apiKey = process.env.VUE_APP_API_KEY;
+
+
 // 트럭의 경로: 좌표 점들의 배열
 const linePath = ref([]);
 
@@ -25,7 +28,7 @@ const loadScript = () => {
     } else {
       // 카카오맵이 로드되지 않은 경우 새로운 스크립트 생성
       const script = document.createElement('script');
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=a4128381b093c4d13c6d256b2bd39303&autoload=false`;
+      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`;
       script.onload = () => {
         window.kakao.maps.load(() => {
           resolve();
