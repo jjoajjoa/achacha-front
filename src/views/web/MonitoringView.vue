@@ -15,6 +15,9 @@ const linePath = ref([]);
 // 마커들을 담아둘 배열
 const markers = ref([]);
 
+// 서버에서 받아온 마커들의 배열
+const importedMarkers = ref([]);
+
 // 지도 및 선 초기화
 var polyline = null;
 var map = null;
@@ -55,21 +58,21 @@ const initializeMap = () => {
   // 맵 인스턴스를 생성하고 전역 맵 변수에 할당
   map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-  const imageSize = new window.kakao.maps.Size(64, 69) // 마커이미지의 크기입니다
-  const imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+  const imageSize = new window.kakao.maps.Size(64, 69) // 마커이미지의 크기
+  const imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커 이미지 안의 좌표
   const markerImage = new window.kakao.maps.MarkerImage(truckImage, imageSize, imageOption)
 
 
 
 
   // // 마커 위치를 저장하는 배열
-  // const markersPosition = ref([]);
-  // markersPosition.value = null;
+  // const markerPosition = ref([]);
+  // markerPosition.value = null;
 
   // // markerPosition 배열에 새로운 좌표를 집어넣는 함수(새로운 차량이 운행을 시작했을 경우 실행하면 됨)
-  // const addMarker = ((name,lat,lng) => {
+  // const addMarkerToMP = ((name,lat,lng) => {
 
-  //   markersPosition.value.push({
+  //   markerPosition.value.push({
   //     title: name,
   //     latlng: new window.kakao.maps.LatLng(lat, lng)
   //   })
@@ -155,9 +158,17 @@ const updatePolyline = (lat, lng) => {
 
 // 새로운 GPS 데이터를 사용하여 마커의 위치를 업데이트하는 함수
 const updateMarker = () => {
+
+
+  if (length(importedMarkers.value)>length(markerPosition.value)) {
+
+  } else {
+
+  }
+  
   markers.value.forEach((marker) => {
-    marker.setPosition(new window.kakao.maps.LatLng(marker.getPosition().getLat() + (vecGen().latVec), marker.getPosition().getLng() + (vecGen().lngVec)));
-  });
+      marker.setPosition(new window.kakao.maps.LatLng(marker.getPosition().getLat() + (vecGen().latVec), marker.getPosition().getLng() + (vecGen().lngVec)));
+    });
 
 
 };
