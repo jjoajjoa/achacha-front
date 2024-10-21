@@ -16,7 +16,7 @@ const linePath = ref([]);
 const markers = ref([]);
 
 // 서버에서 받아온 마커들의 배열
-const importedMarkers = ref([]);
+// const importedMarkers = ref([]);
 
 // 지도 및 선 초기화
 var polyline = null;
@@ -160,11 +160,11 @@ const updatePolyline = (lat, lng) => {
 const updateMarker = () => {
 
 
-  if (length(importedMarkers.value)>length(markerPosition.value)) {
+  // if (length(importedMarkers.value)!=length(markerPosition.value)) {
 
-  } else {
+  // } else {
 
-  }
+  // }
   
   markers.value.forEach((marker) => {
       marker.setPosition(new window.kakao.maps.LatLng(marker.getPosition().getLat() + (vecGen().latVec), marker.getPosition().getLng() + (vecGen().lngVec)));
