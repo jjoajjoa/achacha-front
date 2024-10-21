@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h2>마커 객체 해쉬맵</h2>
+      <h2>UserInfoVO 해쉬맵</h2>
       
       <!-- Display all key-value pairs -->
       <ul>
@@ -8,11 +8,6 @@
           {{ key }}: {{ value }}
         </li> 
       </ul>
-  
-      <!-- Input fields to add a new key-value pair -->
-      <input v-model="newKey" placeholder="Enter key" />
-      <input v-model="newValue" placeholder="Enter value" />
-      <button @click="addKeyValuePair">Add Key-Value Pair</button>
     </div>
   </template>
   
@@ -20,24 +15,24 @@
   export default {
     data() {
       return {
-        // Define the dynamic HashMap
-        dynamicMap: {},
+        // UserInfoVO가 들어갈 해쉬맵
+        userInfoVOMap: {},
         
-        // Define inputs for adding new key-value pairs
-        newKey: "",
-        newValue: ""
+        // key-value 정의하기
+        userId: "", // userid?
+        userInfoVO: {} // UserInfoVo
       };
     },
     methods: {
-      // Method to add key-value pair dynamically
-      addKeyValuePair() {
-        if (this.newKey && this.newValue) {
+      // 새로운 객체를 추가하는 함수
+      addUserInfoVOtoMap() {
+        if (this.userId && this.userInfoVO) {
           // Dynamically add the new key-value pair to the HashMap
-          this.$set(this.dynamicMap, this.newKey, this.newValue);
+          this.$set(this.dynamicMap, this.userId, this.userInfoVO);
           
           // Clear the input fields
-          this.newKey = "";
-          this.newValue = "";
+          this.userId = "";
+          this.userInfoVO = {};
         }
       }
     }

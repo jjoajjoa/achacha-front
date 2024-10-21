@@ -4,7 +4,7 @@ import { ref, onMounted } from 'vue';
 import MainSidebar from '@/components/main/MainSidebar.vue';
 import truckImage from '@/assets/truck.png'; // Import image properly
 
-const apiKey = process.env.VUE_APP_API_KEY;
+const apiKey = process.env.VUE_APP_KAKAOMAP_KEY;
 
 
 // 트럭의 경로: 좌표 점들의 배열
